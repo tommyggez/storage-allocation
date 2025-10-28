@@ -52,6 +52,9 @@ def objective(storage_vals: list[float], sales_data: pd.DataFrame) -> float:
     return -expected_profit(storage_vals, sales_data)
 
 def maximise_expected_profit(sales_data: pd.DataFrame, total_storage: float) -> list[float]:
+    """
+    Use minimis(z)e to maximise expected profit, finding the optimal allocations
+    """
     n_products = len(sales_data)
 
     # initial guess: equal allocation
@@ -76,14 +79,6 @@ def maximise_expected_profit(sales_data: pd.DataFrame, total_storage: float) -> 
 def monte_carlo_expected_profit(storage_vals: list[int], sales_data: pd.DataFrame, n_sim: int = 100_000) -> float:
     """
     Estimate total expected profit using Monte Carlo simulation.
-
-    Parameters:
-        storage_vals: list of storage levels for each product
-        sales_data: DataFrame with columns "mean_demand", "demand_sd", "profit"
-        n_sim: number of Monte Carlo samples
-
-    Returns:
-        Estimated total expected profit
     """
     total_expected_profit = 0.0
 
