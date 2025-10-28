@@ -1,8 +1,5 @@
 # How should you allocate limited space in a warehouse?
-
-If we have limited space in a warehouse which is stocked periodically, how do we decide how to allocate the space for different products in order to maximise expected profit?
-We need to value both the profitability of the product, and the distribution of demand for the product.
-We need to balance the losses incurred by the possibility of running out of any product.
+We're running a business which sells items out of a warehouse. We only get stocked periodically, and thus if we run out of an item in between stockings, we might lose revenue. We thus need to calculate an optimal allocation of products in our warehouse. We need to consider the profitability, and demand probability distribution, to make tradeoffs between profitable items, bestselling items, etc.
 
 Here we use some basic assumptions to optimise allocations given basic information about products.
 
