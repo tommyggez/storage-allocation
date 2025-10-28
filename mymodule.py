@@ -26,10 +26,10 @@ def profit_contribution(row: pd.Series) -> float:
     p_enough = norm.cdf(x=storage, loc=mu, scale=sd)
 
     # conditional expected sales given Sales < storage
-    cond_e_sales = conditional_mean(mu=mu, sd=sd, c=storage)
+    cond_e_demand = conditional_mean(mu=mu, sd=sd, c=storage)
     
     # expected net profit = profit per item * E[min(Sales, storage)]
-    return profit * (p_enough * cond_e_sales + (1 - p_enough) * storage)
+    return profit * (p_enough * cond_e_demand + (1 - p_enough) * storage)
 
 
 def expected_profit(storage_vals: list[float], sales_data: pd.DataFrame) -> float:
@@ -76,7 +76,7 @@ def maximise_expected_profit(sales_data: pd.DataFrame, total_storage: float) -> 
 
 
 
-def monte_carlo_expected_profit(storage_vals: list[int], sales_data: pd.DataFrame, n_sim: int = 100_000) -> float:
+def monte_carlo_expected_profit(storage_vals: list[float], sales_data: pd.DataFrame, n_sim: int = 100_000) -> float:
     """
     Estimate total expected profit using Monte Carlo simulation.
     """
