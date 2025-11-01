@@ -6,4 +6,5 @@ Assumptions:
 1. We don't care about excess NWC.
 2. There are no carrying costs/variable costs of warehouse stocking etc.
 3. Demand for items is normally distributed with a known mean and standard deviation (can be easily modified for other distributions)
+
 *see demo.ipynb for an example of how the module can be used, mymodule.py contains the code behind it*
