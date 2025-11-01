@@ -97,3 +97,12 @@ def monte_carlo_expected_profit(storage_vals: list[float], sales_data: pd.DataFr
         total_expected_profit += expected_profit
 
     return total_expected_profit
+
+def naiive_allocations(sales_data: pd.DataFrame, total_storage: float) -> list[float]:
+    """
+    use a weighted average for the mean sales of each item
+    """
+    mean_sum = sales_data["mean_demand"].sum()
+    allocations = [total_storage*i/mean_sum for i in sales_data["mean_demand"]]
+
+    return allocations
